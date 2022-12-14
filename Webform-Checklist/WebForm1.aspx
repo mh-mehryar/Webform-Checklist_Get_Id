@@ -11,39 +11,53 @@
 Add this script inside head tag:
 
     <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min.js"></script>
-    <script>$(document).ready(function () {
-            console.log('hi from jQuery!');
-        });</script>
-
-    <script>
+    
+    <%--<script>
         $(document).ready(function () {
-            $("#BtnEdit").click(function () {
-                console.log("salam mohammad test btnEdit");
+            $("#editid").click(function () {
+                alert("salam mohammad test btnEdit");
                 $('.tblhtmlCheck:checked').each(function () {
-                    console.log("TEST CHECKBOX");
+                    alert("TEST CHECKBOX");
                 });
             });
         });
-    </script>
-    <script>
+    </script>--%>
+
+    <%--<script>
         function jsMethod(inputtag) {
             var idProp = $(inputtag).prop('id'); // or attr() 
-            var idAttr = $(inputtag).attr('id');
             alert(idProp);
-            alert(idAttr);
+            
         }
-    </script>
-    <script type="text/javascript" language="javascript">
-        function helloWorld() {
-            alert("welcome to codepedia.info");
+    </script>--%>
+   <%-- <script type="text/javascript" language="javascript">
+        function Btn_Click(mh) {
+            //alert(mh.id);
+            var id = document.getElementById("id");
+            window.location.href = ("Edit.aspx?ID=" + id);
         }
-    </script>
+    </script>--%>
     <script>
-        function OptionsSelected(me) {
-            alert(me.id);
+        function getCheckBoxId(checked) {
+            window.location.href = ("Edit.aspx?ID=" + checked.id);
+            //alert(checked.id);
         }
     </script>
    
+
+   <%-- <script>
+        function Btn_Click(checked) {   
+            
+            window.location.href = ("Edit.aspx?ID=" + 2);
+        }
+    </script>--%>
+    <%--<script>
+        function Btn_Click(inputtag) {   
+            var idProp = $(inputtag).prop('id');
+            window.location.href = ("Edit.aspx?ID=" + idProp);
+        }
+    </script>--%>
+
 </head>
 <body>
     <form id="form1" runat="server">
@@ -54,8 +68,10 @@ Add this script inside head tag:
         </div>
 
         <div>
-            <asp:Button ID="BtnEdit" runat="server" Text="Edit" OnClick="BtnEdit_Click" />
-            <input type="checkbox" data-bind="text:Id" id="myCheck" onclick="jsMethod(this);"  name="list"/>
+            <%--<input type="button" value="Edit" onclick="window.location.href='Edit.aspx';"/>--%>
+            <input type="button" id="editid" value="Edit" />
+            
+            <%--<input type="checkbox" data-bind="text:Id" id="myCheck" onclick="jsMethod(this);"  name="list"/>--%>
 
         </div>
     </form>
